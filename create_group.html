@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html ng-app="creategroupapp">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>create group</title>
+
+    <script type="text/javascript" src="http://localhost/SE_Project/angular/angular.js"></script>
+
+
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css"  href="./css/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+</head>
+
+
+<body style="background-color:hsla(0, 0%, 47%, 0.178)" ng-controller="MainCtrl as ctrl">
+
+P<script type="text/javascript" src="http://localhost/SE_Project/group.js"></script>
+
+  <!-- this header is not required when adding to the template page -->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+    <!-- <img src="images/home.png" width="10" height="10"> -->
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand page-scroll" style="color: #f8f8f8;" href="http://localhost/SE_Project/home.html">Appetize</a> 
+      {{ctrl.message}}
+    </div>
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://localhost/SE_Project/home.html" style="color: #f8f8f8;">Home</a></li>
+        <li><a href="http://localhost/SE_Project/home.html#aboutus" class="page-scroll" style="color: #f8f8f8;">About</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+
+<div>
+  <div class="container">
+    <div class="row">
+
+
+
+      <div id="group">
+
+        <div id="friends_list_div"> 
+          <div id="friends_list_header_text">
+            <p><span>Friends List</span></p>
+            <div ng-style="ch_bg" id="friend_load" ng-click="ctrl.fetch_friends()">
+                <!-- this acts like a button -->
+                  <p><span>load friends</span></p>
+            </div>
+          </div>
+          <div id="friends_innerdiv">
+
+            <div id="all_friends">
+
+              <!-- add the onrepeat functoin to below div,user_array is an object or array? -->
+              <div class="a_friend" ng-repeat="x in ctrl.user_array">
+                <i class="fas fa-check tick"></i>
+                <div class="friend_name">
+                    <!-- this has to come here{{}} -->
+                    <p><span>{{x.username}}</span></p>
+                  </div>
+                  <div class="friend_add" ng-click="ctrl.create_request_acharya(x)">
+                    <!-- this acts like a button -->
+                      <p><span>add</span></p>
+                </div>
+              </div>
+             
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <div class="resto_div">
+          <div class="resto_header">
+              <p><span>Restaurants recommended for your group</span></p>
+              <div id="recomend_load" ng-click="ctrl.fetch_recomendations()">
+                  <p><span>Get Recomendations</span></p>
+              </div>          
+          </div>
+          <div class="resto_innerdiv">
+
+            <div id="all_restaurants">
+
+              <!-- add the onrepeat functoin to below div,user_array is an object or array? -->
+              <div class="a_restaurant" ng-repeat="r in ctrl.restaurant_array">
+                <div class="restaurant_name">
+                    <p><span>{{r.restaurant_name}}</span></p>
+                    <p><span>Localiy: {{r.locality}}</span></p>
+                    <!-- <p><span>Average Cost: {{r.average_cost}}</span></p> -->
+                    <p><span>Ratings: {{r.aggregate_rating}}</span>
+                    <span>Quality: {{r.rating_text}}</span></p>
+                    <!-- <p><span>Votes: {{r.votes}}</span></p> -->
+                </div>
+
+              </div>
+             
+            </div>
+
+
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
