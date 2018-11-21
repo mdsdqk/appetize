@@ -1,0 +1,4 @@
+user_id,email_id,password,name,latitude ,longitude,diet,cuisines,friends
+1,shoeb@boss.com,abcd123,Shoeb Inamdar,12.97022064,77.64539558,veg,"Irish,Restaurant Cafe,Kebab,Ramen,Italian","2, 3"
+2,manoj@manoj.com,abcd123,Manoj M,13.026977,77.56233,non-veg,"Pizza,Restaurant Cafe,Kebab,Ramen,Italian","1, 3"
+3,khalandar@nawal.com,abcd123,Khalandar Nawal,12.962424,77.674742,veg,"North Indian,Restaurant Cafe,Kebab,Ramen,Italian","1, 2"

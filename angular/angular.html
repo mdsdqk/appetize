@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="firstMod">
+<head>
+<title>
+    ANGULAR EXAMPLE
+</title>
+<SCRIPT type="text/javascript" src="http://localhost/angular/angular.js"></SCRIPT>
+</head>
+<body ng-controller="MainCtrl as ctrl">
+    <h2> HELLO ... <span ng-bind="ctrl.username"></span> </h2>
+    <input  type ="text" id = "usr"></input>
+    <div ng-repeat="(key,note) in ctrl.notes">
+        <span>{{note.id}}</span>
+        <span>{{note.label}}</span>
+        <span>{{note.done}}</span>
+    </div>
+    <script type ="text/javascript">
+    angular.module("firstMod",[])
+    .controller("MainCtrl",[function()
+                                    {
+                                        console.log("Controller Instantited");
+                                        self=this;
+                                        self.username="FIRST";
+                                        self.notes = {
+                                           a: {id:1, label:"one", done:true},
+                                           b: {id:2, label:"two", done:false},
+                                           c: {id:3, label:"three", done:false},
+                                           d: {id:4, label:"four", done:true}
+                                        };
+                                        self.updateUser = function()
+                                        {
+                                            self.username=document.getElementById("usr").value;
+
+                                        }
+                                        self.showUser = function()
+                                        {
+                                            console.log("Username: " +self.username)
+
+                                        }
+
+
+                                    }]);
+    </script>
+    <input type="button" value="Show user" ng-click="ctrl.showUser()"></input>
+    <input type="text" ng-model="ctrl.username"></input>
+</body>
+</html>
